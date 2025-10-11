@@ -1,3 +1,4 @@
+<!-- python3 -m http.server 8000 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +11,7 @@
 
 
 <body>
-
-  <div class="loader-wrapper">
+    <div class="loader-wrapper">
   <div class="loader">
     <div class="spinner"></div> 
        <img src="assets/spiral2.png" alt="Logo" class="spinner" />
@@ -22,7 +22,7 @@
 <header id="header" class="top-header">
   <div class="header-content">
 
-    <div class="name"><a href="index.html" class="a-header">JULIA PUTKO</a></div>
+    <div class="name">JULIA PUTKO</div>
         <!-- Rotating Logo in the Center -->
     <div class="logo-container">
 
@@ -33,107 +33,52 @@
    
     <nav class="navbar">
       <ul class="nav-links" >
-        <li><a href="resume.html"class="a-header">RESUME</a></li>
-        <li><a href="projects.html"class="a-header">PROJECTS</a></li>
-        <li><a href="art.html" class="a-header">ART PORTFOLIO</a></li>
+        
+          <li><a href="index.html" class="a-header">ART PORTFOLIO</a></li>
+        <li><a href="about.html" class="a-header">ABOUT</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 
-<div class="bodyh">
-  
-  <!-- Decorative floating image layered above background -->
-  <img class="decorative-overlay" src="assets/background.JPG" alt="Decorative Overlay">
-
-  <div class="content-wrapper">
-
-
-    <div class="text-container">
-    
-      <p >
-     
-          Welcome to my portfolio website. I am a software engineer, and a visual artist.
-             
-
-          I am a software engineer passionate about building tools for scientific computing,
-           HPC, and AI workflows.
-       <br>
-        Please <a href="#footer" class="a-link"><strong>reach out</strong></a> if you would like to know more.
-
-        <br>
-        <br> <br>
-        I am a versatile software engineer, with experience developing tools for scientific computing and HPC/AI workflows. I have implemented reusable, maintainable systems across Python, C/C++, and  FORTRAN. I have experience in HPC environments (Slurm, PBS, LSF), data interoperability (NetCDF, HDF5, Xarray). I am passionate about interdisciplinary work and prioritizing efficient, well-documented, and user-focused solutions. 
-    
-
-</div>
-      </p>
-  
-    </div>
-      <img class="profile-pic" src="assets/profilepic.png" alt="Profile Picture">
+ <div class="bodya">
   
 
-
-
-<div class="index-projects-grid">
-
-
-  <div class="index-project">
-    
-      <a href="software-project.html">
-      <div class="index-card" >
-        <img src="assets/multidbcover.png" alt="prev" />
-           <h2 class="index-title">Software:</h2>
-      <p class="index-description">View most recent project</p>
-      </div>
+    <div class="button-container">
+  <a href="art/gallery.html" class="image-button">
+     <p class ="art-text1">GALLERY</p>
+    <img src="assets/IMG_7646.jpg" alt="Gallery">
    
-      </a>
-    </div>
+  </a>
 
-                   
-     <div class="index-project">
-  
-      <a href="art.html" >
-      <div class="index-card" >
-        <img src="assets/IMG_7646.jpg" alt="prev" />
-         <h2 class="index-title">ART:</h2>
-      <p class="index-description">View most recent painting</p>
-      </div>
-     
-      </a>
-    </div>
-
-
- </div>
-
-
-
-
-        <!-- <div class="side-by-side-container-index">
-  <div class="section-index">
-      <img src="assets/footstepscover.png" class="section-index">
-    <h3>Software:</h3>
-    <p>View most recent project</p>
-    <a href="software-project.html" class="btn">View Project</a>
+  <a href="art/sketchbook.html" class="image-button">
+     <p class ="art-text2">SKETCHBOOK</p>
+    <img src="assets/sketchbook.png" alt="Sketchbook">
+   
+  </a>
   </div>
 
-  <div class="section-index">
-     <img src="assets/IMG_7646.jpg" class="section-index">
-    <h3>Art:</h3>
-    <p>View most recent painting</p>
-    <a href="art.html" class="btn">View Gallery</a>
-  </div>
-</div> -->
 
 
 
+ <!-- <section id="art-gallery">
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="assets/Scanned Documents.jpg" alt="Artwork 1" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/IMG_7646.jpg" alt="Artwork 2" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/IMG_7647.jpg" alt="Artwork 3" />
+    </div>
+  Add more art items as needed -->
+  <!-- </div>
+</section> --> 
 
 
-    
 
-
-    <!-- </div> -->
 
 <footer id="footer" class="footer">
 
@@ -153,19 +98,20 @@
         <a href="https://www.linkedin.com/in/julia-putko/" class="linkedin" target="_blank" >LINKEDIN</a>
       </div>
 
-  <div class="footer-links-container-right">
+      <div class="footer-links-container-right">
         <a href="mailto:juliaputko@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20there%2C%20I%20checked%20out%20your%20portfolio..." class="email" target="_blank">EMAIL</a>
 
         <a  href="https://www.google.com/maps/place/Vancouver/" target="_blank" class="location">LOCATION</a>
 
       </div>
 
-</div>
-    </footer>
- 
-
-  </div>
     </div>
+    </footer>
+
+    </div>
+      </div> 
+       
+<script src="js/scroll-sparkles.js"></script>
 <script src="js/load.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-# juliaputko.github.io
-My portfolio website.
+# juliaputkostudio.github.io
+My portfolio
 
 Take a look at my work in Progress: 
 
-https://juliaputko.github.io/
+https://juliaputkostudio.github.io/
