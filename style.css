@@ -1397,3 +1397,13 @@ h1 {
   display: block; /* Make the modal visible when its ID is in the URL hash */
 }
 
+
+
+.piece1 {
+  width: 10%;
+  height:auto;
+}
+
+.bodyp {
+display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+}
