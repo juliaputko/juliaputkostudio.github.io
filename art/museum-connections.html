@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Museum Connections — Julia Putko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #de2145;
+      --black: #050606;
+      --cream: #ddd8cc;
+      --grey: #8a8e8b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--black);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.035) 0 1px, transparent 1.4px) 0 0 / 6px 6px,
+        var(--black);
+      color: var(--cream);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .top-header {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: clamp(88px, 12vh, 140px);
+      align-items: center;
+      justify-content: center;
+      padding: 0 clamp(20px, 5vw, 70px);
+      background: #000;
+      color: #fff;
+    }
+
+    .header-content {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      width: 100%;
+      max-width: 2000px;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .name {
+      justify-self: start;
+      min-width: 0;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.2em;
+      font-weight: 20;
+      text-decoration: none;
+      transform: scale(2, 1.5);
+      transform-origin: left center;
+      white-space: nowrap;
+    }
+
+    .logo-container {
+      position: static;
+      justify-self: center;
+      line-height: 0;
+    }
+
+    .rotating-logo {
+      width: 50px;
+      height: 50px;
+      animation: spin 5s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 2vw, 20px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav {
+      justify-self: end;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.75;
+    }
+
+    .frame {
+      position: relative;
+      width: 100%;
+      min-height: 88vh;
+      margin: 0;
+      padding: clamp(18px, 2.5vw, 34px);
+      background: transparent;
+    }
+
+    .display {
+      display: grid;
+      grid-template-columns: 24% minmax(0, 1fr);
+      gap: clamp(18px, 2.6vw, 32px);
+    }
+
+    .title-strip {
+      display: flex;
+      min-height: clamp(31px, 4vw, 43px);
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 clamp(14px, 2vw, 21px);
+      padding: 1px 12px 0;
+      background: var(--red);
+      color: #080808;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(1.4rem, 3vw, 2.35rem);
+      font-weight: 400;
+      line-height: 1;
+      text-align: center;
+      box-shadow: 5px 4px 0 rgba(222, 33, 69, 0.13);
+    }
+
+    .feature {
+      position: relative;
+      min-height: calc(100% - 64px);
+      padding: 2px clamp(8px, 1.2vw, 16px) 47px;
+      border-right: 1px solid #292b2b;
+      text-align: center;
+    }
+
+    .feature-art {
+      display: block;
+      width: min(180px, 86%);
+      aspect-ratio: 1;
+      margin: 5px auto 14px;
+      border: 4px solid #292c2d;
+      border-radius: 50%;
+      outline: 1px solid #555a59;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px #090909, 0 9px 20px #000;
+    }
+
+    .feature-name {
+      margin: 0;
+      color: var(--red);
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .feature-copy {
+      max-width: 27ch;
+      margin: 9px auto 0;
+      color: #969995;
+      font-family: Georgia, serif;
+      font-size: clamp(0.48rem, 0.7vw, 0.59rem);
+      line-height: 1.5;
+    }
+
+    .feature-credit {
+      margin: 10px auto 0;
+      color: var(--red);
+      font-size: clamp(0.4rem, 0.58vw, 0.48rem);
+      letter-spacing: 0.04em;
+    }
+
+    .feature-buttons {
+      position: absolute;
+      right: 0;
+      bottom: 14px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .feature-buttons span,
+    .marker {
+      width: 11px;
+      height: 11px;
+      border: 2px solid #d3d4d1;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 2px #111;
+    }
+
+    .feature-buttons span:nth-child(2) {
+      background: #d9d9d4;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 22px) clamp(8px, 1.25vw, 14px);
+    }
+
+    .card {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.43;
+      border: 1px solid #282c2b;
+      background: #161918;
+      object-fit: cover;
+      filter: saturate(0.84) contrast(1.05);
+      transition: filter 180ms ease;
+    }
+
+    .card:nth-child(2) img,
+    .card:nth-child(5) img {
+      object-position: 70% center;
+    }
+
+    .card:nth-child(3) img,
+    .card:nth-child(6) img {
+      object-position: 25% center;
+    }
+
+    .card:hover img {
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    .caption {
+      display: grid;
+      grid-template-columns: 15px 1fr;
+      gap: 6px;
+      min-height: 43px;
+      padding: 7px 3px 0;
+      color: #989b98;
+      font-family: Georgia, serif;
+      font-size: clamp(0.43rem, 0.63vw, 0.53rem);
+      line-height: 1.35;
+    }
+
+    .marker {
+      width: 10px;
+      height: 10px;
+      margin-top: 1px;
+      border-width: 1px;
+    }
+
+    .card:nth-child(even) .marker {
+      background: #36819b;
+    }
+
+    .caption p {
+      margin: 0;
+    }
+
+    .caption b {
+      color: #d8d5ce;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.92em;
+      font-weight: 600;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 0;
+      }
+
+      .top-header {
+        height: 9vh;
+        padding: 0 20px;
+      }
+
+      .header-content {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      }
+
+      .name {
+        font-size: 0.9em;
+        transform: scale(1.25, 1.15);
+      }
+
+      .rotating-logo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
+      }
+
+      .display {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        min-height: 0;
+        padding-bottom: 52px;
+        border-right: 0;
+        border-bottom: 1px solid #292b2b;
+      }
+
+      .feature-copy {
+        font-size: 0.65rem;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .caption {
+        font-size: 0.58rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .caption {
+        min-height: 0;
+        margin-bottom: 9px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <site-header></site-header>
+
+  <main class="frame">
+    <div class="display">
+      <section aria-labelledby="madhouse-title">
+        <h1 class="title-strip" id="madhouse-title">Madhouse</h1>
+        <div class="feature">
+          <img class="feature-art" src="../assets/IMG_7646.jpg" alt="A circular detail of Julia Putko's abstract painting">
+          <h2 class="feature-name">Symphony</h2>
+          <p class="feature-copy">
+            Forms surface and disappear inside a restless field of colour.
+            Each gesture joins the next, building a chorus from fragments
+            of movement, memory and imagination.
+          </p>
+          <p class="feature-credit">Julia Putko · mixed media study</p>
+          <div class="feature-buttons" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="connections-title">
+        <h2 class="title-strip" id="connections-title">Museum Connections</h2>
+        <div class="cards">
+          <figure class="card">
+            <img src="../assets/IMG_7647.jpg" alt="Flowing red and blue painted figures">
+            <figcaption class="caption">
+              <span class="marker" aria-hidden="true"></span>
+              <p><b>GESTURE</b><br>A painted line records the speed and pressure of the artist's hand.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card">
+            <img src="../assets/sketchbook.png" alt="Open sketchbook with blue line drawings">
+            <figcaption class="caption">
+              <span class="marker" aria-hidden="true"></span>
+              <p><b>PROCESS</b><br>Loose studies catch an idea before it becomes a finished image.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card">
+            <img src="../assets/IMG_7646.jpg" alt="Dense red, pink and black abstract forms">
+            <figcaption class="caption">
+              <span class="marker" aria-hidden="true"></span>
+              <p><b>RHYTHM</b><br>Repeated forms carry the eye across the surface like a visual beat.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card">
+            <img src="../assets/Scanned Documents.jpg" alt="Pencil drawing of organic abstract forms">
+            <figcaption class="caption">
+              <span class="marker" aria-hidden="true"></span>
+              <p><b>MEMORY</b><br>Faint shapes drift between recognition, invention and forgetting.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card">
+            <img src="../assets/sketch3.jpeg" alt="A page from Julia Putko's sketchbook">
+            <figcaption class="caption">
+              <span class="marker" aria-hidden="true"></span>
+              <p><b>COLLECTION</b><br>Small observations gather over time and begin to speak together.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="card">
+            <img src="../assets/sketch4.jpeg" alt="An expressive drawing from Julia Putko's sketchbook">
+            <figcaption class="caption">
+              <span class="marker" aria-hidden="true"></span>
+              <p><b>CONNECTION</b><br>Separate paths cross and combine to reveal a shared story.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+  </main>
+  <site-footer></site-footer>
+  <script type="module" src="../js/site-shell.js"></script>
+</body>
+</html>
